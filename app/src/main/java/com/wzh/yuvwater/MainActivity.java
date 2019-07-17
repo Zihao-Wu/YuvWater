@@ -13,6 +13,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.wzh.yuvwater.monitor.CameraWrapper;
 import com.wzh.yuvwater.utils.Logger1;
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean misRecord;
     boolean isPause;
 
+    String newVideoPath;
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -121,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 misRecord = true;
 
-                String newVideoPath = Utils.getVideoFilePath();
+                newVideoPath= Utils.getVideoFilePath();
                 CameraWrapper.getInstance().startRecording(newVideoPath);
                 mBtStart.setEnabled(false);
                 mRecordTime = 0;
@@ -154,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.bt_stop:
+                Toast.makeText(this,"视频文件保存至："+newVideoPath,Toast.LENGTH_SHORT).show();
                 CameraWrapper.getInstance().stopRecording();
                 mHandler.removeCallbacksAndMessages(null);
                 misRecord=false;

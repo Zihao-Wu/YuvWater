@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,7 +26,7 @@ public class CreateNumberAct extends AppCompatActivity {
     private Paint p;
     private String TAG = "CreateNumberAct";
 
-    public String[] chars = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", ":", " "};
+    public String[] chars = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", ":", " ","年","月","日"};
 
     public Map<String, byte[]> map = new HashMap<>();
 
@@ -46,7 +45,7 @@ public class CreateNumberAct extends AppCompatActivity {
             p.setColor(Color.WHITE);
             p.setTextSize(30);
         }
-        int w = 17, h = 25;
+        int w = 17, h = 23;
 
         findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,13 +65,8 @@ public class CreateNumberAct extends AppCompatActivity {
                         Canvas canvas = new Canvas(srcBit);
                         canvas.drawColor(Color.BLACK);
 
-                        if (TextUtils.equals("1", content)) {
-                            canvas.drawText(content, 1, (r.height() + h) / 2, p);
-                        } else if (TextUtils.equals("-", content)) {
-                            canvas.drawText(content, (w - r.width()) / 2, h - r.height(), p);
-                        } else {
-                            canvas.drawText(content, (w - r.width()) / 2, (r.height() + h) / 2, p);
-                        }
+
+                        canvas.drawText(content, (w - r.width()) / 2, (r.height() + h) / 2, p);
 
                         runOnUiThread(() -> {
                             ImageView iv = (ImageView) LayoutInflater.from(CreateNumberAct.this).inflate(R.layout.item_image_view, llRoot, false);

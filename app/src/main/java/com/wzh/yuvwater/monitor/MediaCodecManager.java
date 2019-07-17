@@ -92,7 +92,8 @@ class MediaCodecManager {
                 MediaCodecManager.this.rotation = rotation;
 
                 prepare();
-                String pattern = "yyyy-MM-dd HH:mm:ss";
+                String pattern = "yyyy年MM月dd日 HH:mm:ss";//日期格式 年月日
+//                String pattern = "yyyy-MM-dd HH:mm:ss";//日期格式
                 mFormat = new SimpleDateFormat(pattern, Locale.CHINA);
 
                 YuvOsdUtils.initOsd(off_x, off_y, pattern.length(), dstWidth, dstHeight, rotation);
