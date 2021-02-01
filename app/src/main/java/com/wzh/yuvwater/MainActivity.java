@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -76,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        findViewById(R.id.bt_build).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CreateNumberAct.class));
+            }
+        });
 
     }
 
@@ -176,18 +180,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return String.format(Locale.CHINA, "%02d:%02d", minute, second);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        menu.add("生成数字YUV数据").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, CreateNumberAct.class));
-                return true;
-            }
-        });
-        return true;
-    }
 
     @Override
     protected void onDestroy() {

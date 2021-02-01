@@ -19,6 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_height="wrap_content"
+        android:id="@+id/ll_line"
         android:orientation="horizontal">
 
         <Button
@@ -45,6 +46,20 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="竖屏" />
-    </LinearLayout>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/ll_line"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_line2"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/bt_build"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="生成数字YUV数据" />
+    </LinearLayout>
 </RelativeLayout>

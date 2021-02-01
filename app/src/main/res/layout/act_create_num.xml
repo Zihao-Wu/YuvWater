@@ -6,6 +6,10 @@
     android:id="@+id/ll_root"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="源码：CreateNumberAct.java ，点击生成后，查看Log（tag=CreateNumberAct）,把yuv数据copy到YuvOsdUtils.c"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
